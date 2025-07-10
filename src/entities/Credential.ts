@@ -21,8 +21,8 @@ export class Credential {
         return this.username || undefined;
     }
 
-    getPassword(): string | undefined {
-        return this.password || undefined;
+    getPassword(): string {
+        return this.password ;
     }
 
     setEmail(email: string): void {
