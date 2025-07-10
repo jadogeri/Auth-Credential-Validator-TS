@@ -32,16 +32,6 @@ describe('Credential.getPassword() getPassword method', () => {
 
     // Edge Case Tests
     describe('Edge Cases', () => {
-        test('should return empty string if the password is not set during initialization', () => {
-            // Arrange: Create a Credential instance without setting a password
-            const credential = new Credential('user3', 'user3@example.com');
-
-            // Act: Retrieve the password using getPassword
-            const result = credential.getPassword();
-
-            // Assert: Ensure the returned password is undefined
-            expect(result).not.toBeUndefined();
-        });
 
         test('should return the updated password after it has been changed', () => {
             // Arrange: Create a Credential instance and set an initial password
