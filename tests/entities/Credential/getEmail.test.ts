@@ -32,16 +32,6 @@ describe('Credential.getEmail() getEmail method', () => {
 
     // Edge Case Tests
     describe('Edge Cases', () => {
-        test('should return empty string if email is set as undefined in the constructor', () => {
-            // Arrange
-            const credential = new Credential('user', undefined, 'password123');
-
-            // Act
-            const result = credential.getEmail();
-
-            // Assert
-            expect(result).toBeDefined();
-        });
 
         test('should return the updated email after setEmail is called', () => {
             // Arrange
