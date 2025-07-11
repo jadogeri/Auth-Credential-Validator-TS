@@ -10,7 +10,7 @@ const mockCredential = {
 } as unknown as jest.Mocked<Credential>;
 
 // Mock the Credential constructor to always return the mockCredential
-jest.mock("../Credential.js", () => ({
+jest.mock("../../../src/entities/Credential", () => ({
   Credential: jest.fn().mockImplementation(() => mockCredential),
 }));
 
@@ -49,7 +49,7 @@ describe('Validator.setUsernameRegex() setUsernameRegex method', () => {
       const validator = new Validator('user', 'user@email.com', 'password');
       expect(() => {
         validator.setUsernameRegex('not-a-regex' as unknown as RegExp);
-      }).toThrowError(new TypeError('Input must be a valid regexp'));
+      }).toThrow(new TypeError('Input must be a valid regexp'));
     });
 
     it('should throw TypeError if input is not a RegExp (number)', () => {
@@ -57,7 +57,7 @@ describe('Validator.setUsernameRegex() setUsernameRegex method', () => {
       const validator = new Validator('user', 'user@email.com', 'password');
       expect(() => {
         validator.setUsernameRegex(123 as unknown as RegExp);
-      }).toThrowError(new TypeError('Input must be a valid regexp'));
+      }).toThrow(new TypeError('Input must be a valid regexp'));
     });
 
     it('should throw TypeError if input is not a RegExp (object)', () => {
@@ -65,7 +65,7 @@ describe('Validator.setUsernameRegex() setUsernameRegex method', () => {
       const validator = new Validator('user', 'user@email.com', 'password');
       expect(() => {
         validator.setUsernameRegex({} as RegExp);
-      }).toThrowError(new TypeError('Input must be a valid regexp'));
+      }).toThrow(new TypeError('Input must be a valid regexp'));
     });
 
     it('should throw TypeError if input is not a RegExp (array)', () => {
@@ -73,7 +73,7 @@ describe('Validator.setUsernameRegex() setUsernameRegex method', () => {
       const validator = new Validator('user', 'user@email.com', 'password');
       expect(() => {
         validator.setUsernameRegex([] as unknown as RegExp);
-      }).toThrowError(new TypeError('Input must be a valid regexp'));
+      }).toThrow(new TypeError('Input must be a valid regexp'));
     });
 
     it('should reset to default usernameRegex when called with null', () => {
