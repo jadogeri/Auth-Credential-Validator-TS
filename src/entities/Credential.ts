@@ -3,7 +3,7 @@ export class Credential {
     private email: string;
     private password: string;
 
-    constructor(username: string = "", email: string = "", password: string = "") {
+    constructor(username: string, email: string , password: string ) {
         
         this.username = username;
         this.email = email;
