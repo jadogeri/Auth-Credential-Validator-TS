@@ -9,7 +9,7 @@
   ],
   "type": "module",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --testPathPattern=tests/",
     "build": "tsc && ts-add-js-extension --dir=dist"
   },
   "repository": {
