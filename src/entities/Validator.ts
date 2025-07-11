@@ -6,7 +6,7 @@
  *  
  */
 import { usernameRegex, emailRegex, passwordRegex } from "../data/regex";
-import { Credential } from "./Credential.js";
+import { Credential } from "./Credential";
 export class Validator {
     private credential :Credential;
     private usernameRegex: RegExp;
