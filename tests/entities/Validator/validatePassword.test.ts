@@ -69,22 +69,8 @@ describe('Validator.validatePassword() validatePassword method', () => {
   describe('Edge cases', () => {
     beforeEach(() => {
       jest.clearAllMocks();
-    });
-
-    /*
-    it('should return null if password is null', () => {
-      // This test ensures that if the password is null, the method returns null.
-      const credential = {
-        getPassword: jest.fn().mockReturnValue(null),
-      } as unknown as jest.Mocked<Credential>;
-
-      const validator = new Validator('user', 'user@email.com', 'irrelevant');
-      (validator as any).credential = credential;
-
-      expect(validator.validatePassword()).toBeNull();
-      expect(credential.getPassword).toHaveBeenCalledTimes(1);
-    });
-    */
+    });   
+    
 
     it('should return false for an empty string password', () => {
       // This test ensures that an empty string password returns false.
@@ -137,7 +123,7 @@ describe('Validator.validatePassword() validatePassword method', () => {
       expect(validator.validatePassword()).toBe(true);
       expect(credential.getPassword).toHaveBeenCalledTimes(2);
     });
-/*
+
     it('should throw TypeError if password is not a string (e.g., number)', () => {
       // This test ensures that if the password is a number, the regex test throws a TypeError.
       const credential = {
@@ -148,12 +134,11 @@ describe('Validator.validatePassword() validatePassword method', () => {
       (validator as any).credential = credential;
 
       expect(() => validator.validatePassword()).toThrow(TypeError);
-      expect(credential.getPassword).toHaveBeenCalledTimes(2);
+      expect(credential.getPassword).toHaveBeenCalledTimes(1);
     });
+    
 
-    */
-
-    it('should return false for a password with special characters if regex does not allow them', () => {
+    test('should return false for a password with special characters if regex does not allow them', () => {
       // This test ensures that a password with special characters returns false if the regex does not allow them.
       const credential = {
         getPassword: jest.fn().mockReturnValue('Passw@rd1'),
