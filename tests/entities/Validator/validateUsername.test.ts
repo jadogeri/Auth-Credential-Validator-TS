@@ -28,8 +28,7 @@ describe('Validator.validateUsername() validateUsername method', () => {
   // Happy Path Tests
   // =========================
   describe('Happy paths', () => {
-    /*
-    it('should return true for a valid username matching the regex', () => {
+    test('should return true for a valid username matching the regex', () => {
       // This test ensures that a valid username returns true
       const validUsername = 'validUser_123';
       jest.mocked(mockCredential.getUsername).mockReturnValue(validUsername);
@@ -42,7 +41,6 @@ describe('Validator.validateUsername() validateUsername method', () => {
       expect(result).toBe(true);
       expect(mockCredential.getUsername).toHaveBeenCalledTimes(2); // Called in both null check and test
     });
-    */
 
     it('should return false for an invalid username not matching the regex', () => {
       // This test ensures that an invalid username returns false
