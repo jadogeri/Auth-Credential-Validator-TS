@@ -17,8 +17,8 @@ export class Credential {
         return this.email;
     }
 
-    getUsername(): string | undefined {
-        return this.username || undefined;
+    getUsername(): string  {
+        return this.username;
     }
 
     getPassword(): string {
