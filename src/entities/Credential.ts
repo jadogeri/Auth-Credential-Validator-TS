@@ -1,10 +1,7 @@
 export class Credential {
-    username: string;
-    email: string;
-    password: string;
-
-    constructor(username: string , email: string, password: string );
-
+    private username: string;
+    private email: string;
+    private password: string;
 
     constructor(username: string = "", email: string = "", password: string = "") {
         
@@ -26,26 +23,16 @@ export class Credential {
     }
 
     setEmail(email: string): void {
-        if (email === undefined || email === null) {
-            this.email = "";
-        } else {
-            this.email = email;
-        }
+        this.email = email;
     }
 
     setUsername(username: string): void {
-        if (username === undefined || username === null) {
-            this.username = "";
-        } else {
-            this.username = username;
-        }
+        
+        this.username = username;
     }
 
     setPassword(password: string): void {
-        if (password === undefined || password === null) {
-            this.password = "";
-        } else {
-            this.password = password;
-        }
+
+        this.password = password;
     }
 }
