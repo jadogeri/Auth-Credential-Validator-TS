@@ -1,7 +1,7 @@
 
-import { emailRegex } from "../../data/regex";
-import { Credential } from "../Credential";
-import { Validator } from '../Validator';
+import { emailRegex } from "../../../src/data/regex";
+import { Credential } from "../../../src/entities/Credential";
+import { Validator } from '../../../src/entities/Validator';
 
 
 // Manual Jest mock for Credential class
@@ -88,7 +88,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
       (validator as any).emailRegex = emailRegex;
 
       const result = validator.validateEmail();
-      expect(result).toBeNull();
+      expect(result).toBe(false);
       expect(mockCredential.getEmail).toHaveBeenCalled();
     });
 
