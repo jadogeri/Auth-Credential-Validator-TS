@@ -27,7 +27,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
   // Happy Path Tests
   //
   describe('Happy paths', () => {
-    it('should return true for a valid email address', () => {
+    test('should return true for a valid email address', () => {
       // This test ensures that a valid email returns true
       const validEmail = 'user@example.com';
       const validator = createValidatorWithMockCredential(validEmail);
@@ -40,7 +40,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
       expect(mockCredential.getEmail).toHaveBeenCalled();
     });
 
-    it('should return false for an invalid email address', () => {
+    test('should return false for an invalid email address', () => {
       // This test ensures that an invalid email returns false
       const invalidEmail = 'invalid-email';
       const validator = createValidatorWithMockCredential(invalidEmail);
@@ -52,7 +52,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
       expect(mockCredential.getEmail).toHaveBeenCalled();
     });
 
-    it('should return true for a valid email with subdomain', () => {
+    test('should return true for a valid email with subdomain', () => {
       // This test ensures that emails with subdomains are accepted
       const validEmail = 'user@mail.example.com';
       const validator = createValidatorWithMockCredential(validEmail);
@@ -157,7 +157,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
       expect(result).toBe(false);
       expect(mockCredential.getEmail).toHaveBeenCalled();
     });
-/*
+
     it('should return false for an email with a trailing dot in local part', () => {
       // This test ensures that an email with a trailing dot in the local part is not valid
       const validator = createValidatorWithMockCredential('user.@example.com');
@@ -168,7 +168,7 @@ describe('Validator.validateEmail() validateEmail method', () => {
       expect(result).toBe(false);
       expect(mockCredential.getEmail).toHaveBeenCalled();
     });
-    */
+    
 
     it('should return false for an email with a leading dot in local part', () => {
       // This test ensures that an email with a leading dot in the local part is not valid
