@@ -1,7 +1,7 @@
 
-import { passwordRegex } from "../../../src/data/regex.js";
-import { Credential } from "../../../src/entities/Credential.js";
-import { Validator } from '../../../src/entities/Validator.js';
+import { passwordRegex } from "../../../src/data/regex";
+import { Credential } from "../../../src/entities/Credential";
+import { Validator } from '../../../src/entities/Validator';
 
 
 // Manual Jest mock for Credential class
@@ -11,14 +11,14 @@ const mockCredential = {
 } as unknown as jest.Mocked<Credential>;
 
 // Mock the Credential constructor to always return our mockCredential
-jest.mock("../Credential.js", () => {
+jest.mock("../../../src/entities/Credential", () => {
   return {
     Credential: jest.fn(() => mockCredential),
   };
 });
 
 // Mock regex imports
-jest.mock("../../data/regex", () => ({
+jest.mock("../../../src/data/regex", () => ({
   usernameRegex: /mockUsername/,
   emailRegex: /mockEmail/,
   passwordRegex: /mockPassword/,
@@ -58,50 +58,50 @@ describe('Validator.setPasswordRegex() setPasswordRegex method', () => {
 
   // --- Edge Cases ---
   describe('Edge cases', () => {
-    it('should throw TypeError if input is a string', () => {
+    test('should throw TypeError if input is a string', () => {
       // This test ensures that a string input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex('notARegex' as unknown as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex('notARegex' as unknown as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
 
-    it('should throw TypeError if input is a number', () => {
+    test('should throw TypeError if input is a number', () => {
       // This test ensures that a number input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex(123 as unknown as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex(123 as unknown as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
 
-    it('should throw TypeError if input is an object (not RegExp)', () => {
+    test('should throw TypeError if input is an object (not RegExp)', () => {
       // This test ensures that a plain object input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex({} as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex({} as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
 
-    it('should throw TypeError if input is an array', () => {
+    test('should throw TypeError if input is an array', () => {
       // This test ensures that an array input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex([] as unknown as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex([] as unknown as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
 
-    it('should throw TypeError if input is a boolean', () => {
+    test('should throw TypeError if input is a boolean', () => {
       // This test ensures that a boolean input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex(true as unknown as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex(true as unknown as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
 
-    it('should throw TypeError if input is a function', () => {
+    test('should throw TypeError if input is a function', () => {
       // This test ensures that a function input throws a TypeError.
       const validator = createValidator();
-      expect(() => validator.setPasswordRegex((() => {}) as unknown as RegExp)).toThrowError(
+      expect(() => validator.setPasswordRegex((() => {}) as unknown as RegExp)).toThrow(
         new TypeError('Input must be a valid regexp')
       );
     });
