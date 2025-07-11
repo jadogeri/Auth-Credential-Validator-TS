@@ -25,7 +25,7 @@ export class Validator {
      * @throws {TypeError} If the username is not a string.
      */    
     validateUsername(): boolean | null{
-        if(!this.getCredential().getUsername() == null){
+        if(typeof this.getCredential().getUsername() != "string"){
             throw new TypeError("username is not a string");
         }
         return this.usernameRegex.test(this.credential.getUsername())
@@ -36,9 +36,9 @@ export class Validator {
      * @returns {boolean} True if the email format is valid, otherwise false.
      * @throws {TypeError} If credential or email is not defined.
      */
-    validateEmail(): boolean| null{
-        if(!this.getCredential().getEmail() == null){
-            return null
+    validateEmail(): boolean | null{
+        if(typeof this.getCredential().getEmail() != "string"){
+            throw new TypeError("email is not a string");
         }
         return this.emailRegex.test(this.credential.getEmail())
     }

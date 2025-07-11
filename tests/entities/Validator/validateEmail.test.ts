@@ -81,16 +81,6 @@ describe('Validator.validateEmail() validateEmail method', () => {
   // Edge Case Tests
   //
   describe('Edge cases', () => {
-    it('should return null if getEmail() returns null', () => {
-      // This test ensures that if getEmail returns null, validateEmail returns null
-      const validator = createValidatorWithMockCredential(null);
-
-      (validator as any).emailRegex = emailRegex;
-
-      const result = validator.validateEmail();
-      expect(result).toBe(false);
-      expect(mockCredential.getEmail).toHaveBeenCalled();
-    });
 
     it('should return false for an empty string email', () => {
       // This test ensures that an empty string is not considered a valid email
@@ -179,6 +169,19 @@ describe('Validator.validateEmail() validateEmail method', () => {
       const result = validator.validateEmail();
       expect(result).toBe(false);
       expect(mockCredential.getEmail).toHaveBeenCalled();
+    });
+
+    it('should throw TypeError if email is not a string (e.g., number)', () => {
+      // This test ensures that if the email is a number, the regex test throws a TypeError.
+      const credential = {
+        getEmail: jest.fn().mockReturnValue(12345678),
+      } as unknown as jest.Mocked<Credential>;
+
+      const validator = new Validator('user', 'user@email.com', 'irrelevant');
+      (validator as any).credential = credential;
+
+      expect(() => validator.validateEmail()).toThrow(TypeError);
+      expect(credential.getEmail).toHaveBeenCalledTimes(1);
     });
   });
 });
