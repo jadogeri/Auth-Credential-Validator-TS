@@ -83,7 +83,7 @@ This is a typescript npm package for both frontend and backend Applications (Exp
 
 ### **1.1 Purpose**
 
-This document outlines the package architecture, components, and design considerations for Auth Credential Validator JS package. The goal is to provide support in validating user credentials, ensuring credentials adhere to standards for most online accounts.
+This document outlines the package architecture, components, and design considerations for Auth Credential Validator TS package. The goal is to provide support in validating user credentials, ensuring credentials adhere to standards for most online accounts.
 
 ### **1.2 Scope**
 
@@ -211,7 +211,7 @@ The `Validator` class represents a single validator with its attributes and meth
 
 ```typescript
 
-import Validator from "auth-credential-validator-ts"
+import Validator from "@josephadogeridev/auth-credential-validator-ts"
 const validator = new Validator("jose mourinho","jose mpurinho@gmailcom","rtw5wwvw+-*/twrt");
 
 console.log("*********** Testing Package before publish using npm link***********\n\n");
@@ -241,9 +241,9 @@ validator.setPasswordRegex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*])[\
 
 ## 5. Tests  ##
 
-#### 5.1 Test Using Jest ####
+Note : this test was done pre publish to NPM repository.
 
-Note: Testing package pre publish to NPM repository.
+#### 5.1 Test Using Jest ####
 
 1 Inside of root directory, type npm run test to run unit tests.
 
@@ -256,9 +256,7 @@ Note: Testing package pre publish to NPM repository.
 
 #### 5.2 Test Using NPM Link ####
 
-Note : this test was done pre publish to npm manager
-
-1 Run command npm run build to package app into dist directory.
+1 Run command npm run build to package app and generate  dist directory.
 
 ```bash
   npm run build
@@ -291,15 +289,13 @@ npm link @josephadogeridev/auth-credential-validator-ts
 
 #### 5.3 Test Using NPM Pack ####
 
-Note : this test was done pre publish to npm manager
-
 1 In the root of package run npm run build to generate build (./dist).
 
 ```bash
   npm run build
 ```
 
-![](assets/images/npmrunbuild.png)
+![](assets/images/testusingnpmpack0.png)
 
 2 In the root of package run npm pack to package the module into a zipped file (.tgz).
 
@@ -307,19 +303,19 @@ Note : this test was done pre publish to npm manager
   npm pack
 ```
 
-![](assets/images/npmpack.png)
+![](assets/images/testusingnpmpack1.png)
 
-3 Create or use existing React Application.
+3 Create or use existing React Application (typescript).
 
 4 Copy and paste the created file in the root of a React Application.
 
-5 Run command npm install josephadogeridev-use-results-ts-1.0.0.tgz to install created package.
+5 Run command npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz to install created package.
 
 ```bash
-  npm install josephadogeridev-use-results-ts-1.0.0.tgz
+  npm install josephadogeridev-auth-credential-validator-ts-1.0.0.tgz
 ```
 
-![](assets/images/npmprod.png)
+![](assets/images/testusingnpmpack2.png)
 
 ## **6. License**
 
@@ -333,4 +329,8 @@ Note : this test was done pre publish to npm manager
 * AweSome Open Source : [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
 * Readme.so : [The easiest way to create a README](https://readme.so/)
 * Mockingoose : [How to test mongoose models with jest and mockingoose](https://dev.to/darkmavis1980/how-to-test-mongoose-models-with-jest-and-mockingoose-2k10)
+* NPM : [Creating nodejs modules](https://docs.npmjs.com/creating-node-js-modules)
+* Dev.io : [Testing npm packages before publishing](https://dev.to/vcarl/testing-npm-packages-before-publishing-h7o)
+* FreeCodeCamp : [How to create and publish an NPM Package - step by step guide](https://www.freecodecamp.org/news/how-to-create-and-publish-your-first-npm-package/)
+* Dev.io : [Create and Publish NPM Package for custom Hooks in React JS](https://dev.to/shivampawar/create-and-publish-npm-package-for-custom-hooks-in-react-js-5237)
 
