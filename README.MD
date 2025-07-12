@@ -1,6 +1,6 @@
 # **Auth Credential Validator TS**
 
-**Version:** 1.0.0
+**Version:** 1.0.2
 **Date:** July 10, 2025
 
 ---

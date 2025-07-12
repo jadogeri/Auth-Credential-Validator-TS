@@ -1,6 +1,6 @@
 {
   "name": "@josephadogeridev/auth-credential-validator-ts",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "React hook for fetching data from ApI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,15 +17,15 @@
     "url": "git+https://github.com/jadogeri/Auth-Credential-Validator-TS.git"
   },
   "keywords": [
-    "@josephadogeridev/use-results-ts",
-    "use-results-ts",
+    "@josephadogeridev/auth-credential-validator-ts",
+    "auth-credential-validator-ts",
     "@josephadogeridev",
     "npm",
     "react",
     "react-native",
     "typescript",
-    "hook",
-    "API"
+    "Validator",
+    "Credential"
   ],
   "author": "Joseph Adogeri",
   "license": "MIT",

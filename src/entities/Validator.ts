@@ -12,6 +12,13 @@ export class Validator {
     private usernameRegex: RegExp;
     private emailRegex: RegExp;
     private passwordRegex: RegExp;
+
+    /**
+     * constructor to create new instance of Validator.
+     * @param {string} username - The username of a credential.
+     * @param {string} email - The email address of a credential.
+     * @param {string} password - The password of a credential.
+     */    
        constructor(username : string, email : string, password : string){
         this.credential = new Credential(username,email,password);
         this.usernameRegex = usernameRegex;
