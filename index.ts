@@ -1,5 +1,4 @@
-const app =()=>{
-    return 1
-}
+import { Validator } from "./src/entities/Validator";
+console.log(Validator)
 
-export default app;
+export default Validator;

@@ -65,8 +65,9 @@ This is a typescript npm package for both frontend and backend Applications (Exp
     <ul>
         <li><a href="#5-tests">5. Tests</a> </li>
         <ul>
-            <li><a href="#51-test-from-node_modules">5.1 Test from node_modules</a> </li>
-            <li><a href="#52-test-from-npm-link">5.2 Test from npm link</a> </li>
+            <li><a href="#51-test-using-jest">5.1 Test Using Jest</a> </li>
+            <li><a href="#52-test-using-npm-link">5.2 Test Using NPM Link</a> </li>
+            <li><a href="#53-test-using-npm-pack">5.3 Test Using NPM Pack</a> </li>
         </ul>
     </ul> 
     <ul>  
@@ -238,18 +239,13 @@ validator.setPasswordRegex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*])[\
 
 ```
 
-
 ## 5. Tests  ##
 
-#### **5.1 Test from node_modules**
+#### 5.1 Test Using Jest ####
 
-1 navigate to cd @josephadogeridev/auth-credential-validator-ts directory using command below
+Note: Testing package pre publish to NPM repository.
 
-```bash
-  cd node_modules/@josephadogeridev/auth-credential-validator-ts  
-```
-
-2 type npm run test to run unit tests
+1 Inside of root directory, type npm run test to run unit tests.
 
 ```bash
   npm run test
@@ -258,32 +254,72 @@ validator.setPasswordRegex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%\^&\*])[\
 ![](assets/images/testusingjest.png)
 
 
-#### **5.2 Test from npm link**
+#### 5.2 Test Using NPM Link ####
 
 Note : this test was done pre publish to npm manager
 
-1 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency. 
+1 Run command npm run build to package app into dist directory.
+
+```bash
+  npm run build
+```
+![](assets/images/testusingnpmlink0.png)
+
+2 In the root of package run npm link to create symbolic link  between a local package under development and another Node.js project that wants to use it as a dependency. 
 
 ```bash
   npm link
 ```
 
-![](assets/images/npmlink.png)
+![](assets/images/testusingnpmlink1.png)
 
 
-2 Create a new directory, copy script.js in node_modules/@josephadogeridev/Auth-Credential-Validator-JS directory to new folder.
+2 Create a new react project or use an existing project (typescript).
 
-3 Run command npm link @josephadogeridev/Auth-Credential-Validator-JS to install node with created package.
+3 In the root or react project, run command npm link @josephadogeridev/Auth-Credential-Validator-TS to install node with created package.
 
-![](assets/images/afternpmlink.png)
-
-3 Type node script.js to test package.
 
 ```bash
-  code script.js
+npm link @josephadogeridev/auth-credential-validator-ts
 ```
 
-![](assets/images/testusingnpmlink.png)
+![](assets/images/testusingnpmlink2.png)
+
+#### Example of Test Using NPM Link ####
+
+![](assets/images/testusingnpmlink3.png)
+
+#### 5.3 Test Using NPM Pack ####
+
+Note : this test was done pre publish to npm manager
+
+1 In the root of package run npm run build to generate build (./dist).
+
+```bash
+  npm run build
+```
+
+![](assets/images/npmrunbuild.png)
+
+2 In the root of package run npm pack to package the module into a zipped file (.tgz).
+
+```bash
+  npm pack
+```
+
+![](assets/images/npmpack.png)
+
+3 Create or use existing React Application.
+
+4 Copy and paste the created file in the root of a React Application.
+
+5 Run command npm install josephadogeridev-use-results-ts-1.0.0.tgz to install created package.
+
+```bash
+  npm install josephadogeridev-use-results-ts-1.0.0.tgz
+```
+
+![](assets/images/npmprod.png)
 
 ## **6. License**
 
