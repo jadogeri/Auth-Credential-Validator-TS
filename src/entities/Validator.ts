@@ -1,7 +1,7 @@
 /**
  * @author      Joseph Adogeri
- * @since       10-JUL-2025
- * @version     1.0.0
+ * @since       12-JUL-2025
+ * @version     1.0.3
  * @description class to validate user credentials
  *  
  */
@@ -64,7 +64,7 @@ export class Validator {
 
     /**
      * Sets the email regex pattern for validation.
-     * @param {RegExp} emailRegex - The regular expression to validate email addresses.
+     * @param {RegExp} regex - The regular expression to validate email addresses.
      * @returns {void} - This function does not return a value.
      * @throws {TypeError} - Throws an error if emailRegex is not a RegExp object.
      */    
@@ -82,7 +82,7 @@ export class Validator {
 
     /**
      * Sets the username regex pattern for validation.
-     * @param {RegExp} usernameRegex - The regex pattern to validate usernames.
+     * @param {RegExp} regex - The regex pattern to validate usernames.
      * @returns {void} - This function does not return a value.
      * @throws {TypeError} - Throws if usernameRegex is not a RegExp object.
      */    
@@ -100,7 +100,7 @@ export class Validator {
 
     /**
      * Sets the password regex pattern for validation.
-     * @param {RegExp} passwordRegex - The regex pattern to validate passwords.
+     * @param {RegExp} regex - The regex pattern to validate passwords.
      * @returns {void} - This function does not return a value.
      * @throws {TypeError} - Throws an error if passwordRegex is not a RegExp object.
      */    
@@ -118,10 +118,10 @@ export class Validator {
 
     /**
      * Retrieves the current credential stored in the object.
-     * @returns {any} The credential associated with the object.
-     * @throws {undefined} If the credential is not set, it returns undefined.
+     * @returns {Credential} The credential associated with the object.
+     * @throws No exceptions are thrown.
      */    
-    getCredential(): any{
+    getCredential(): Credential{
         return this.credential;
     }   
 
